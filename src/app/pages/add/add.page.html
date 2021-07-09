@@ -1,0 +1,48 @@
+
+
+<ion-content [fullscreen]="true"  >
+  <div class="back" ></div>
+  <div class="toolbar">
+
+  </div>
+  <div class="content">
+    <section class="upload-container">
+      <div class="drop-zone">
+        <div class="icon-container">
+          <img src="../../../assets/file.svg" alt="file" class="center" draggable="false" />
+        </div>
+        <label for="upload" class="selecttag">
+          <h1 class="glyphicon glyphicon-folder-open filename" aria-hidden="true">{{selectFileText}}</h1>
+          <input type="file" id="upload" style="display:none" (change)="uploadFile($event)">
+    </label>
+      </div>
+      <div class="progressContainer" *ngIf="showProgress">
+        <span class="uploadText">Uploading...</span>
+        <ion-progress-bar class="progress" value="0.0" buffer="0.05"></ion-progress-bar>
+      </div>
+      <div class="urlContainer" *ngIf="showURL">
+        <div style="width:85%;text-align: center;">
+          <p class="glyphicon glyphicon-folder-open filename" aria-hidden="true">{{url ? url.file : null}}</p>
+
+        </div>
+        <ion-icon (click)="writeToClipboard()" name="copy-outline"></ion-icon>
+      </div>
+      <div class="emailContainer" *ngIf="showURL">
+          <ion-list lines="full" class="ion-no-margin">
+            <ion-item>
+              <ion-label position="floating">Email To</ion-label>
+              <ion-input #i1 type="email" [(ngModel)]="emailTo"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Email From</ion-label>
+              <ion-input #i2 type= "email" [(ngModel)]="emailFrom"></ion-input>
+            </ion-item>
+          </ion-list>
+          <section>
+            <ion-button expand="block" [disabled]="!validateEmail(i1.value) || !validateEmail(i2.value)"  >Send</ion-button>
+          </section>
+      </div>
+    </section>
+
+  </div>
+</ion-content>

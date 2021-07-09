@@ -1,5 +1,8 @@
 {
   "name": "myshare",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

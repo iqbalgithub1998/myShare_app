@@ -1,0 +1,52 @@
+
+
+<!-- <ion-content>
+  <div class="center">
+    <ion-slides #slides pager="true" [options]="slideOpts" >
+      <ion-slide class="step-one ion-text-center">
+        <img margintop20 src="../../../assets/slides/intro1.png" />
+        <h1 class="mainText">Files shareing easy.</h1>
+        <p class ="subText">Share your files easy with your friends.</p>
+      </ion-slide>
+      <ion-slide class="step-one">
+        <img margintop20 src="../../../assets/slides/intro2.jpg" />
+        <h1 class="mainText">Safe and Secure..</h1>
+        <p class ="subText">sharing file is safe and secure now. Feel free to share as many as files you want.</p>
+      </ion-slide>
+      <ion-slide class="step-one">
+        <img margintop20 src="../../../assets/slides/intro3.png" />
+        <h1>Welcome to GoShare .</h1>
+        <div (click)="next()" class="goNext ion-text-center" >
+          <ion-icon  name="arrow-forward"></ion-icon>
+        </div>
+
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+</ion-content> -->
+
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+  <ion-slides>
+
+    <ion-slide>
+      <div class="slide">
+        <img src="../../../assets/slides/intro1.png"/>
+        <h2>Welcome</h2>
+        <p>The <b>files sharing app</b> feel free share files with your colleagues. Its <b>Secure</b> and <b>Fast</b>.</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <img src="../../../assets/slides/intro2.jpg"/>
+      <h2>What is GoShare?</h2>
+      <p><b>GoShare App</b> is a free app that provides you free file sharing service with high <b>Security</b>. No one can't access that file from server until you provide access pin. </p>
+    </ion-slide>
+    <ion-slide>
+      <img src="../../../assets/slide-4.png"/>
+      <h2>Ready to Play?</h2>
+      <ion-button (click)="next()" fill="clear">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+    </ion-slide>
+
+  </ion-slides>
+</ion-content>

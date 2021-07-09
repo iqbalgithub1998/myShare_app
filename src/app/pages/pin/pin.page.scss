@@ -1,0 +1,137 @@
+.main{
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  flex-direction:column;
+}
+.title{
+  margin-top: 10px;
+  margin-bottom:15px;
+}
+.typeInput{
+  padding:5px 26px;
+  width: 100%;
+  display:flex;
+  justify-content:space-around;
+}
+
+input{
+  width: 10%;
+}
+.filename{
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+h1{
+  text-align:center;
+  width:80%;
+  font-size:16px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.input{
+  text-align:center;
+  border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: #eff5fe;
+        -webkit-text-security: square;
+        font-size: 24px !important;
+        font-weight: bold;
+
+}
+.inputshow{
+  text-align:center;
+  border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color: #eff5fe;
+        -webkit-text-security: none;
+        font-size: 24px !important;
+        font-weight: bold;
+
+}
+input:focus {
+  outline: none !important;
+}
+
+.close{
+  width:30px;
+  height:30px;
+  border-radius:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position: absolute;
+  top:15px;
+  right:15px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+ion-icon{
+  font-size: 25px;
+}
+
+
+
+ion-content{
+  --background:#eff5fe;
+  position:relative;
+}
+
+.toolbar{
+  padding:15px;
+  width:100%;
+  height:15%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  border-radius: 0px 0px 0px 45px;
+  background:#FFFFFF;
+  position:absolute;
+}
+.back{
+  width:50%;
+  height: 100%;
+  position:absolute;
+  right:0;
+  background:#FFFFFF;
+}
+.content{
+  width:100%;
+  height: 100%;
+  border-radius: 0px 50px 0px 0px;
+  padding:15px;
+  position:relative;
+  padding-top: 50px;
+  top:15%;
+  background:#eff5fe;
+}
+.showBtn{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+}
+.show{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.showText{
+  font-size:18px;
+  font-weight:bold;
+  padding: 9px;
+}
+
