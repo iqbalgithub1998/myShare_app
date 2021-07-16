@@ -9,6 +9,7 @@ export class UploadService {
   host = 'https://go-share-mik.herokuapp.com/';
   deleteURL = `${this.host}api/files/delete`;
   uploadURL = `${this.host}api/files`;
+  sendEmailURL = `${this.uploadURL}/send`;
   pinURL = `${this.host}api/files/pin`;
   constructor(private toastService: ToastService) {}
 
@@ -74,8 +75,33 @@ export class UploadService {
           resolve(data);
         })
         .catch((err) => {
+          console.log(err);
           reject(err);
         });
+    });
+  }
+  sendFileViaEmail(formData) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const response = await fetch(this.sendEmailURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        const res = response.json();
+        resolve(res);
+      } catch (error) {
+        reject(error);
+      }
+      // .then((response) => response.json())
+      // .then((data) => {
+      //   resolve(data);
+      // })
+      // .catch((err) => {
+      //   reject(err);
+      // });
     });
   }
 }

@@ -1,3 +1,5 @@
+import { LottiePage } from './../lottie/lottie.page';
+/* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable max-len */
 import { PinPage } from '../pin/pin.page';
 import { Component, OnInit } from '@angular/core';
@@ -20,6 +22,7 @@ export class AddPage implements OnInit {
   showProgress: boolean;
   emailTo: any;
   emailFrom: any;
+  sendTime = 1;
   constructor(
     private modalCtrl: ModalController,
     private uploadService: UploadService,
@@ -73,8 +76,8 @@ export class AddPage implements OnInit {
           const progress = document.querySelector('.progress');
           this.uploadService
             .uploadImage(this.file, this.pin, progress)
-            .then((res) => {
-              console.log(res);
+            .then(async (res) => {
+              //console.log(res);
               this.showProgress = false;
               this.url = res;
               this.showURL = true;
@@ -85,7 +88,6 @@ export class AddPage implements OnInit {
               this.uploadService.setpin(formData).then(async (jsondata) => {
                 const fileArray = await this.storage.get('goShareMyFiles');
                 if (fileArray) {
-                  console.log(fileArray);
                   fileArray.push(jsondata);
                   await this.storage.set('goShareMyFiles', fileArray);
                 } else {
@@ -94,6 +96,11 @@ export class AddPage implements OnInit {
                   await this.storage.set('goShareMyFiles', file);
                 }
               });
+              const successModal = await this.modalCtrl.create({
+                component: LottiePage,
+                cssClass: 'lottie-modal',
+              });
+              return successModal.present();
             })
             .catch((err) => {
               this.showProgress = false;
@@ -110,7 +117,12 @@ export class AddPage implements OnInit {
     // eslint-disable-next-line max-len
     const re =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+    const check = re.test(String(email).toLowerCase());
+    if (check === true && this.sendTime === 1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   writeToClipboard = async () => {
@@ -124,4 +136,27 @@ export class AddPage implements OnInit {
         this.toastService.showToast('error in save to clipboard');
       });
   };
+
+  async sendEmail() {
+    const formData = {
+      uuid: this.url.file.split('/').splice(-1, 1)[0],
+      emailFrom: this.emailFrom,
+      emailTo: this.emailTo,
+    };
+    try {
+      await this.uploadService
+        .sendFileViaEmail(formData)
+        .then((data) => {
+          if (data['success']) {
+            this.sendTime = 2;
+            this.toastService.showToast('File has been sent');
+          }
+        })
+        .catch((error) => {
+          this.toastService.showToast(error.error);
+        });
+    } catch (error) {
+      this.toastService.showToast('Some error occurred');
+    }
+  }
 }

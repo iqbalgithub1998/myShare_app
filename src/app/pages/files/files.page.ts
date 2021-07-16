@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/dot-notation */
 import { Component, OnInit } from '@angular/core';
 import { ModalController, PopoverController } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
@@ -17,13 +18,19 @@ export class FilesPage implements OnInit {
     private storage: Storage,
     private toastService: ToastService,
     private popoverController: PopoverController,
-    private modalCtrl: ModalController,
-    private uploadService: UploadService,
-    private storageService: StorageService
+    private uploadService: UploadService
   ) {}
 
   async ngOnInit() {
+    console.log('darkMode');
+
     await this.storage.create();
+    const darkMode = await this.storage.get('myshareDarkMode');
+    if (darkMode === 'ON') {
+      document.body.setAttribute('color-theme', 'dark');
+    } else {
+      document.body.setAttribute('color-theme', 'light');
+    }
   }
 
   async ionViewDidEnter() {
@@ -79,6 +86,7 @@ export class FilesPage implements OnInit {
               (file) => file.uuid === result.uuid
             );
             this.files.splice(index, 1);
+            this.toastService.showToast(res['success']);
           }
         });
       } else if (data.data === 'getLink') {

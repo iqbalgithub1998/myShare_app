@@ -1,9 +1,18 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
-  </ion-toolbar>
-</ion-header>
 
 <ion-content>
-
+  <div class="back" ></div>
+  <div class="toolbar">
+    <span class="title">Settings</span><br>
+  </div>
+  <div class="content">
+    <div class="darkmode">
+      <span class="dark">Dark Mode</span><ion-toggle [(ngModel)]="toggle" (ionChange) = "toggleTheme($event)"></ion-toggle>
+    </div>
+    <div (click)="openPrivacyPolicy()" class="darkmode">
+      <span class="dark">Privacy  Policy</span><ion-icon name="chevron-forward"></ion-icon>
+    </div>
+    <div (click)="opencontact()" class="darkmode">
+      <span class="dark">contact us</span><ion-icon name="chevron-forward"></ion-icon>
+    </div>
+  </div>
 </ion-content>

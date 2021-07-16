@@ -25,4 +25,19 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
+.half-modal .modal-wrapper{
+  height:90%;
+  width:80%;
+  top:5%;
+  border-radius: 10px;
+  position:absolute;
+  display:block;
+}
+.lottie-modal .modal-wrapper{
+  height:70%;
+  width:80%;
+  top:15%;
+  border-radius: 10px;
+  position:absolute;
+  display:block;
+}

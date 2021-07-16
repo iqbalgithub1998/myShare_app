@@ -1,3 +1,4 @@
+@import "../../../theme/variables.scss";
 .main{
   width: 100%;
   height: 50%;
@@ -42,7 +43,7 @@ h1{
         border-right-style: hidden;
         border-left-style: hidden;
         border-bottom-style: hidden;
-        background-color: #eff5fe;
+        background-color: var(--ion-color-light);
         -webkit-text-security: square;
         font-size: 24px !important;
         font-weight: bold;
@@ -54,7 +55,7 @@ h1{
         border-right-style: hidden;
         border-left-style: hidden;
         border-bottom-style: hidden;
-        background-color: #eff5fe;
+        background-color: var(--ion-color-light);
         -webkit-text-security: none;
         font-size: 24px !important;
         font-weight: bold;
@@ -84,7 +85,7 @@ ion-icon{
 
 
 ion-content{
-  --background:#eff5fe;
+  --background:var(--ion-color-light);
   position:relative;
 }
 
@@ -96,7 +97,7 @@ ion-content{
   justify-content:center;
   align-items: center;
   border-radius: 0px 0px 0px 45px;
-  background:#FFFFFF;
+  background:var(--ion-color-medium);
   position:absolute;
 }
 .back{
@@ -104,17 +105,17 @@ ion-content{
   height: 100%;
   position:absolute;
   right:0;
-  background:#FFFFFF;
+  background:var(--ion-color-medium);
 }
 .content{
   width:100%;
-  height: 100%;
+  height: 85%;
   border-radius: 0px 50px 0px 0px;
   padding:15px;
   position:relative;
   padding-top: 50px;
   top:15%;
-  background:#eff5fe;
+  background:var(--ion-color-light);
 }
 .showBtn{
   width:100%;

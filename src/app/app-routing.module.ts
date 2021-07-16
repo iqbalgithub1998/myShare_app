@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'half-modal',
     loadChildren: () => import('./half-modal/half-modal.module').then( m => m.HalfModalPageModule)
   },
+  {
+    path: 'lottie',
+    loadChildren: () => import('./pages/lottie/lottie.module').then( m => m.LottiePageModule)
+  },
 ];
 @NgModule({
   imports: [

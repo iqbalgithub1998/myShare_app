@@ -8,13 +8,9 @@ import { FilesPageRoutingModule } from './files-routing.module';
 
 import { FilesPage } from './files.page';
 
+
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    FilesPageRoutingModule
-  ],
-  declarations: [FilesPage]
+  imports: [CommonModule, FormsModule, IonicModule, FilesPageRoutingModule],
+  declarations: [FilesPage],
 })
 export class FilesPageModule {}
